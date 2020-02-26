@@ -33,22 +33,24 @@ function sendGenericMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "generic",
-          title: "This is a generic",
-          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
-          subtitle: "Use FriendDeals and save you and a friend money!",
-          buttons:[{
-            type: "web_url",
-            url: "https://www.google.com",
-            title: "Buy now!"
-          }, {
-            type: "web_url",
-            url: "https://www.google.com",
-            title: "Invite a friend and save with FriendDeals!"
-          }, {
-            type: "web_url",
-            url: "https://www.google.com",
-            title: "Use another friend's code!"
-          }]
+          elements: [{
+	          title: "This is a generic",
+	          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+	          subtitle: "Use FriendDeals and save you and a friend money!",
+	          buttons:[{
+	            type: "web_url",
+	            url: "https://www.google.com",
+	            title: "Buy now!"
+	          }, {
+	            type: "web_url",
+	            url: "https://www.google.com",
+	            title: "Invite a friend and save with FriendDeals!"
+	          }, {
+	            type: "web_url",
+	            url: "https://www.google.com",
+	            title: "Use another friend's code!"
+	          }]
+	      }]
         }
       }
     }
