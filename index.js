@@ -50,8 +50,9 @@ function sendGenericMessage(recipientId) {
 }
 
 function getGenericPayload(pay_num){
+	const payload;
 	if (pay_num === 1){
-		const payload = {
+		payload = {
 	      template_type: "generic",
 	      elements: [{
 	          title: "This is a generic",
