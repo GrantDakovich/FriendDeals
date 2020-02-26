@@ -102,6 +102,7 @@ function sendGenericMessage(recipientId) {
   };
 
   callGenericSendAPI(messageData);
+}
 
 function callGenericSendAPI(messageData){
 	request({
@@ -248,16 +249,4 @@ app.get("/", function (req, res){
 	res.send("hello world");
 });
 //Make Express listening
-app.listen(process.env.PORT || 80); 
-
-
-
-
-
-
-
-
-
-
-
-
+app.listen(process.env.PORT || 80);
