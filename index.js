@@ -23,7 +23,7 @@ function handleMessage(sender_psid, received_message) {
   sendButtonMessage(sender_psid);
 }
 
-function sendButtonMessage(recipientId) {
+function sendGenericMessage(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -32,20 +32,22 @@ function sendButtonMessage(recipientId) {
       attachment: {
         type: "template",
         payload: {
-          template_type: "button",
-          text: "This is test text",
+          template_type: "generic",
+          title: "This is a generic",
+          image_url: "https://i.picsum.photos/id/430/200/100.jpg",
+          subtitle: "Use FriendDeals and save you and a friend money!",
           buttons:[{
             type: "web_url",
-            url: "https://www.oculus.com/en-us/rift/",
-            title: "Open Web URL"
+            url: "https://www.google.com",
+            title: "Buy now!"
           }, {
-            type: "postback",
-            title: "Trigger Postback",
-            payload: "DEVELOPER_DEFINED_PAYLOAD"
+            type: "web_url",
+            url: "https://www.google.com",
+            title: "Invite a friend and save with FriendDeals!"
           }, {
-            type: "phone_number",
-            title: "Call Phone Number",
-            payload: "+16505551234"
+            type: "web_url",
+            url: "https://www.google.com",
+            title: "Use another friend's code!"
           }]
         }
       }
