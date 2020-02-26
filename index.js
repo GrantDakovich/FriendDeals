@@ -23,6 +23,13 @@ function handleMessage(sender_psid, received_message) {
   sendGenericMessage(sender_psid);
 }
 
+function handlePostback(sender_psid, postback_event){
+
+  var payload = event.postback.payload;
+
+  console.log(payload);
+}
+
 function sendGenericMessage(recipientId) {
   var messageData = {
     recipient: {
@@ -42,9 +49,9 @@ function sendGenericMessage(recipientId) {
 	            url: "https://www.google.com",
 	            title: "Buy now!"
 	          }, {
-	            type: "web_url",
-	            url: "https://www.google.com",
-	            title: "Invite a friend and save with FriendDeals!"
+	            type: "postback",
+	            title: "Invite a friend and save with FriendDeals!",
+	            payload: "Get mi code"
 	          }, {
 	            type: "web_url",
 	            url: "https://www.google.com",
@@ -232,7 +239,9 @@ app.post('/webhook', (req, res) => {
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
         handleMessage(sender_psid, webhook_event.message);        
-      } 
+      } else if (webhook_event.postback){
+      	handlePostback(sender_psid, webhook_event);
+      }
 
     });
 
