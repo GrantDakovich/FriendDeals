@@ -20,7 +20,7 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);  
-  sendButtonMessage(sender_psid);
+  sendGenericMessage(sender_psid);
 }
 
 function sendGenericMessage(recipientId) {
