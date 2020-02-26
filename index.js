@@ -57,30 +57,67 @@ function sendGenericMessage(recipientId) {
   callGenericSendAPI(messageData);
 }
 
-function callGenericSendAPI(messageData) {
-  request({
-    uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: str },
-    method: 'POST',
-    json: messageData
-
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var recipientId = body.recipient_id;
-      var messageId = body.message_id;
-
-      if (messageId) {
-        console.log("Successfully sent message with id %s to recipient %s",
-          messageId, recipientId);
-      } else {
-      console.log("Successfully called Send API for recipient %s",
-        recipientId);
+function sendGenericMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",
+            image_url: "https://i.picsum.photos/id/430/200/100.jpg",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/rift/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for first bubble",
+            }],
+          }, {
+            title: "touch",
+            subtitle: "Your Hands, Now in VR",
+            item_url: "https://www.oculus.com/en-us/touch/",
+            image_url: "https://i.picsum.photos/id/430/200/100.jpg",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/touch/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for second bubble",
+            }]
+          }]
+        }
       }
-    } else {
-      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
     }
-  });
+  };
+
+  callGenericSendAPI(messageData);
+
+function callGenericSendAPI(messageData){
+	request({
+	    "uri": "https://graph.facebook.com/v2.6/me/messages",
+	    "qs": { "access_token": str },
+	    "method": "POST",
+	    "json": messageData
+	  }, (err, res, body) => {
+	    if (!err) {
+	      console.log('message sent!')
+	    } else {
+	      console.error("Unable to send message:" + err);
+	    }
+	}); 
 }
+
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
@@ -186,7 +223,6 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
 
-
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
       // Check if the event is a message or postback and
@@ -194,7 +230,6 @@ app.post('/webhook', (req, res) => {
       if (webhook_event.message) {
         handleMessage(sender_psid, webhook_event.message);        
       } 
-
 
     });
 
@@ -210,7 +245,19 @@ app.post('/webhook', (req, res) => {
 
 
 app.get("/", function (req, res){
-res.send("hello world");
+	res.send("hello world");
 });
 //Make Express listening
 app.listen(process.env.PORT || 80); 
+
+
+
+
+
+
+
+
+
+
+
+
