@@ -50,9 +50,7 @@ function sendGenericMessage(recipientId) {
 }
 
 function getGenericPayload(pay_num){
-	const load = {};
-	if (pay_num === 1){
-		load = {
+	const load = {
 	      template_type: "generic",
 	      elements: [{
 	          title: "This is a generic",
@@ -73,7 +71,7 @@ function getGenericPayload(pay_num){
 	          }]
 	      }]
 	    };
-	}
+	
 
 	return load;
 }
