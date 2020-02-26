@@ -34,7 +34,7 @@ function sendGenericMessage(recipientId) {
         payload: {
           template_type: "generic",
           title: "This is a generic",
-          image_url: "https://i.picsum.photos/id/430/200/100.jpg",
+          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
           subtitle: "Use FriendDeals and save you and a friend money!",
           buttons:[{
             type: "web_url",
@@ -56,7 +56,7 @@ function sendGenericMessage(recipientId) {
 
   callGenericSendAPI(messageData);
 }
-
+/*
 function sendGenericMessage(recipientId) {
   var messageData = {
     recipient: {
@@ -103,7 +103,7 @@ function sendGenericMessage(recipientId) {
 
   callGenericSendAPI(messageData);
 }
-
+*/
 function callGenericSendAPI(messageData){
 	request({
 	    "uri": "https://graph.facebook.com/v2.6/me/messages",
