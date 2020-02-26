@@ -25,9 +25,13 @@ function handleMessage(sender_psid, received_message) {
 
 function handlePostback(sender_psid, postback_event){
 
-  var payload = event.postback.payload;
-
+  var payload = postback_event.postback.payload;
+  
   console.log(payload);
+  const response = {
+    "text": "FriendCode is: 23sjdw3"
+  }
+  callSendAPI(sender_psid, response);
 }
 
 function sendGenericMessage(recipientId) {
