@@ -14,7 +14,7 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
+      "text": `You sent the message: "${received_message.text}".`
     }
   } 
   
@@ -42,33 +42,41 @@ function sendGenericMessage(recipientId) {
     message: {
       attachment: {
         type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-	          title: "This is a generic",
-	          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
-	          subtitle: "Use FriendDeals and save you and a friend money!",
-	          buttons:[{
-	            type: "web_url",
-	            url: "https://www.google.com",
-	            title: "Buy now!"
-	          }, {
-	            type: "postback",
-	            title: "Invite a friend and save with FriendDeals!",
-	            payload: "Get mi code"
-	          }, {
-	            type: "web_url",
-	            url: "https://www.google.com",
-	            title: "Use another friend's code!"
-	          }]
-	      }]
-        }
+        payload: getGenericPayload()
       }
     }
   };
-
   callGenericSendAPI(messageData);
 }
+
+function getGenericPayload(){
+	const payload = {
+      template_type: "generic",
+      elements: [{
+          title: "This is a generic",
+          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          subtitle: "Use FriendDeals and save you and a friend money!",
+          buttons:[{
+            type: "web_url",
+            url: "https://www.google.com",
+            title: "Buy now!"
+          }, {
+            type: "postback",
+            title: "Invite a friend and save with FriendDeals!",
+            payload: "Get mi code"
+          }, {
+            type: "web_url",
+            url: "https://www.google.com",
+            title: "Use another friend's code!"
+          }]
+      }]
+    };
+
+	return payload;
+}
+
+
+
 /*
 function sendGenericMessage(recipientId) {
   var messageData = {
