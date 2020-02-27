@@ -42,38 +42,40 @@ function sendGenericMessage(recipientId) {
     message: {
       attachment: {
         type: "template",
-        payload: getGenericPayload(1)
+        payload: {
+        	template_type: "generic",
+        	elements: getGenericElements(1)
+        }
       }
     }
   };
   callGenericSendAPI(messageData);
 }
 
-function getGenericPayload(pay_num){
-	const load = {
-	      template_type: "generic",
-	      elements: [{
-	          title: "This is a generic",
-	          image_url: "https://i.picsum.photos/id/430/250/150.jpg",
-	          subtitle: "Use FriendDeals and save you and a friend money!",
-	          buttons:[{
-	            type: "web_url",
-	            url: "https://www.google.com",
-	            title: "Buy now!"
-	          }, {
-	            type: "postback",
-	            title: "Invite a friend and save with FriendDeals!",
-	            payload: "Get mi code"
-	          }, {
-	            type: "web_url",
-	            url: "https://www.google.com",
-	            title: "Use another friend's code!"
-	          }]
-	      }]
-	    };
+function getGenericElements(pay_num){
+	var elements = [];
+	if (pay_num === 1){
+	    elements = [{
+        	title: "This is a generic",
+          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	subtitle: "Use FriendDeals and save you and a friend money!",
+          	buttons:[{
+            	type: "web_url",
+            	url: "https://www.google.com",
+            	title: "Buy now!"
+          	}, {
+            	type: "postback",
+            	title: "Invite a friend and save with FriendDeals!",
+            	payload: "Get mi code"
+          	}, {
+            	type: "web_url",
+            	url: "https://www.google.com",
+            	title: "Use another friend's code!"
+          	}]
+	    }];
+	}
 	
-
-	return load;
+	return elements;
 }
 
 
