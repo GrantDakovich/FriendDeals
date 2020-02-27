@@ -25,12 +25,22 @@ function handleMessage(sender_psid, received_message) {
 
 function handlePostback(sender_psid, postback_event){
 
-  var payload = postback_event.postback.payload;
-  
-  console.log(payload);
-  const response = {
-    "text": "FriendCode is: 23sjdw3"
-  }
+  	var payload = postback_event.postback.payload;
+  	console.log(payload);
+  	var response = {};
+
+	if (payload == "Get friend code"){
+		response = {
+			"text": "FriendCode is: 23sjdw3"
+		}
+	}
+	else if (payload == "Going back"){
+		response = {
+			"text": "Going back"
+		}
+	}
+
+
   callSendAPI(sender_psid, response);
 }
 
@@ -66,7 +76,7 @@ function getGenericElements(pay_num){
           	}, {
             	type: "postback",
             	title: "Use FriendDeals!",
-            	payload: "Get mi code"
+            	payload: "Get friend code"
           	}]
 	    }];
 	} else if (pay_num === 2){
@@ -80,12 +90,8 @@ function getGenericElements(pay_num){
             	title: "Buy now!"
           	}, {
             	type: "postback",
-            	title: "Invite a friend and save with FriendDeals!",
-            	payload: "Get mi code"
-          	}, {
-            	type: "web_url",
-            	url: "https://www.google.com",
-            	title: "Use another friend's code!"
+            	title: "Go Back",
+            	payload: "Going back"
           	}]
 	    }];
 	}
