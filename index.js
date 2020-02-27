@@ -20,7 +20,7 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);  
-  sendGenericMessage(sender_psid);
+  sendGenericMessage(sender_psid, 1);
 }
 
 function handlePostback(sender_psid, postback_event){
@@ -34,7 +34,7 @@ function handlePostback(sender_psid, postback_event){
   callSendAPI(sender_psid, response);
 }
 
-function sendGenericMessage(recipientId) {
+function sendGenericMessage(recipientId, generic_num) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -44,7 +44,7 @@ function sendGenericMessage(recipientId) {
         type: "template",
         payload: {
         	template_type: "generic",
-        	elements: getGenericElements(1)
+        	elements: getGenericElements(generic_num)
         }
       }
     }
@@ -56,6 +56,21 @@ function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
+        	title: "This is a generic",
+          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	subtitle: "Use FriendDeals and save you and a friend money!",
+          	buttons:[{
+            	type: "web_url",
+            	url: "https://www.google.com",
+            	title: "Buy now!"
+          	}, {
+            	type: "postback",
+            	title: "Use FriendDeals!",
+            	payload: "Get mi code"
+          	}]
+	    }];
+	} else if (pay_num === 2){
+		elements = [{
         	title: "This is a generic",
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
           	subtitle: "Use FriendDeals and save you and a friend money!",
