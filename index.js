@@ -33,15 +33,17 @@ function handlePostback(sender_psid, postback_event){
 		response = {
 			"text": "FriendCode is: 23sjdw3"
 		}
+		callSendAPI(sender_psid, response);
 	}
 	else if (payload == "Going back"){
-		response = {
-			"text": "Going back"
-		}
+		sendGenericMessage(sender_psid, 1);
+	}
+	else if (payload == "Access Friend Deals"){
+		sendGenericMessage(sender_psid, 2);
 	}
 
 
-  callSendAPI(sender_psid, response);
+  
 }
 
 function sendGenericMessage(recipientId, generic_num) {
@@ -76,7 +78,7 @@ function getGenericElements(pay_num){
           	}, {
             	type: "postback",
             	title: "Use FriendDeals!",
-            	payload: "Get friend code"
+            	payload: "Access Friend Deals"
           	}]
 	    }];
 	} else if (pay_num === 2){
@@ -85,9 +87,9 @@ function getGenericElements(pay_num){
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
-            	type: "web_url",
-            	url: "https://www.google.com",
-            	title: "Buy now!"
+            	type: "postback",
+            	title: "Get Friend Code",
+            	payload: "Get friend code"
           	}, {
             	type: "postback",
             	title: "Go Back",
