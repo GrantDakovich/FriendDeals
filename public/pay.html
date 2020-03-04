@@ -19,6 +19,7 @@ window.extAsyncInit = function () {
           function success(thread_context) {
             // success
             document.getElementById("psid").value = thread_context.psid;
+            console.log(thread_context.psid);
             document.getElementById('submitButton').addEventListener('click', function () {
                     MessengerExtensions.requestCloseBrowser(function success() {
                         console.log("Webview closing");
