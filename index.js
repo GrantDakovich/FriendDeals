@@ -30,7 +30,7 @@ function handlePostback(sender_psid, postback_event){
   	console.log(payload);
   	var response = {};
 
-	if (payload == "Get friend code"){
+	if (payload == "Pay"){
 		/*response = {
 			"text": "FriendCode is: 23sjdw3"
 		}
@@ -57,7 +57,6 @@ function handlePostback(sender_psid, postback_event){
 			}
 		};
 		callGenericSendAPI(messageData);
-
 	}
 	else if (payload == "Going back"){
 		sendGenericMessage(sender_psid, 1);
@@ -70,6 +69,9 @@ function handlePostback(sender_psid, postback_event){
 			"text": "Message us a code from your friend"
 		}
 		callSendAPI(sender_psid, response);
+	}
+	else if (payload == "Get Friend Code"){
+		sendGenericMessage(sender_psid, 3);
 	}
   
 }
@@ -102,8 +104,8 @@ function getGenericElements(pay_num){
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
             	type: "web_url",
-            	url: "https://www.google.com",
-            	title: "Buy now!"
+            	title: "Buy now!",
+            	payload: "Pay"
           	}, {
             	type: "postback",
             	title: "FriendDeals!!",
@@ -127,6 +129,17 @@ function getGenericElements(pay_num){
             	type: "postback",
             	title: "Go Back",
             	payload: "Going back"
+          	}]
+	    }];
+	} else if (pay_num === 3){
+		elements = [{
+        	title: "This is a generic",
+          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	subtitle: "Take a screen-shot and send friend code to a friend. \nYour friend code is xerwio3",
+          	buttons:[{
+            	type: "postback",
+            	title: "Continue...",
+            	payload: "Pay"
           	}]
 	    }];
 	}
@@ -346,6 +359,7 @@ app.get('/paypostback', (req, res) => {
 	let response = {
 	    "text": `Great, I will book you a ${body.bed} bed, with ${body.pillows} pillows and a ${body.view} view.`
 	};
+	sendGenericMessage(body.psid, 1)
 	res.status(200).send('Please close this window to return to the conversation thread.');
 	callSendAPI(body.psid, response);
 });
