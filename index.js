@@ -21,7 +21,7 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);  
-  sendGenericMessage(sender_psid, 1);
+  
 }
 
 function handlePostback(sender_psid, postback_event){
@@ -29,8 +29,10 @@ function handlePostback(sender_psid, postback_event){
   	var payload = postback_event.postback.payload;
   	console.log(payload);
   	var response = {};
-
-	if (payload == "Pay"){
+  	if (payload == "Getting Started"){
+  		sendGenericMessage(sender_psid, 1);
+  	}
+	else if (payload == "Pay"){
 		/*response = {
 			"text": "FriendCode is: 23sjdw3"
 		}
