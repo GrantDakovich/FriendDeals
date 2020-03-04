@@ -20,7 +20,7 @@ function handleMessage(sender_psid, received_message) {
   } 
   
   // Sends the response message
-  callSendAPI(sender_psid, response);  
+  //callSendAPI(sender_psid, response);  
   sendGenericMessage(sender_psid, 1);
 }
 
@@ -77,6 +77,7 @@ function handlePostback(sender_psid, postback_event){
 }
 
 function sendGenericMessage(recipientId, generic_num) {
+  console.log("We here");
   var messageData = {
     recipient: {
       id: recipientId
@@ -96,6 +97,7 @@ function sendGenericMessage(recipientId, generic_num) {
 }
 
 function getGenericElements(pay_num){
+	console.log("now here");
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
