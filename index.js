@@ -104,13 +104,11 @@ function sendGenericMessage(recipientId, generic_num) {
       }
     }
   };
-  console.log(getGenericElements(generic_num));
 
   callGenericSendAPI(messageData);
 }
 
 function getGenericElements(pay_num){
-	console.log("now here");
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
@@ -213,7 +211,6 @@ function sendGenericMessage(recipientId) {
 }
 */
 function callGenericSendAPI(messageData){
-	console.log(messageData);
 	request({
 	    "uri": "https://graph.facebook.com/v2.6/me/messages",
 	    "qs": { "access_token": str },
@@ -372,12 +369,16 @@ app.get('/pay', (req, res) => {
 
 app.get('/paypostback', (req, res) => {
 	let body = req.query;
-	let response = {
+	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	sendGenericMessage(body.psid, 1)
-	res.status(200).send('Please close this window to return to the conversation thread.');
+	var response2 = {
+	    "text": "ok"
+	};
+	//sendGenericMessage(body.psid, 1)
 	callSendAPI(body.psid, response);
+	callSendAPI(body.psid, response2);
+	res.status(200).send('Please close this window to return to the conversation thread.');
 });
 
 //Make Express listening
