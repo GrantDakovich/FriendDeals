@@ -21,7 +21,7 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);  
-  sendGenericMessage(sender_psid, 2);
+  sendGenericMessage(sender_psid, 1);
 }
 
 function handlePostback(sender_psid, postback_event){
@@ -105,7 +105,7 @@ function getGenericElements(pay_num){
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
-            	type: "web_url",
+            	type: "postback",
             	title: "Buy now!",
             	payload: "Pay"
           	}, {
