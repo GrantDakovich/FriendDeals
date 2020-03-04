@@ -18,6 +18,7 @@ window.extAsyncInit = function () {
         MessengerExtensions.getContext('205924050770323',
           function success(thread_context) {
             // success
+            console.log(thread_context);
             document.getElementById("psid").value = thread_context.psid;
             console.log(thread_context.psid);
             document.getElementById('submitButton').addEventListener('click', function () {
