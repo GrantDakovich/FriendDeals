@@ -91,6 +91,7 @@ function sendGenericMessage(recipientId, generic_num) {
       }
     }
   };
+  console.log(getGenericElements(generic_num));
 
   callGenericSendAPI(messageData);
 }
