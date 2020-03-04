@@ -40,13 +40,13 @@ window.extAsyncInit = function () {
 <form action="/paypostback" method="get">
     <input type="hidden" name="psid" id="psid">
     Name on Card: <br>
-    <input type="text">
+    <input type="text" name="card_name" id="card_name"><br>
     Card Number: <br>
-    <input type="text">
+    <input type="text" name="card_number" id="card_number"><br>
     Exp: <br>
-    <input type="text">
+    <input type="text" name="expiration_date" id="expiration_date"><br>
     CVV: <br>
-    <input type="text">
+    <input type="text" name="cvv" id="cvv"><br>
     <input type="submit" value="Submit" id="submitButton">
 </form>
 </body>

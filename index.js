@@ -373,7 +373,7 @@ app.get('/pay', (req, res) => {
 app.get('/paypostback', (req, res) => {
 	let body = req.query;
 	let response = {
-	    "text": "Success"
+	    "text": `Success ${body.card_number}`
 	};
 	sendGenericMessage(body.psid, 1)
 	res.status(200).send('Please close this window to return to the conversation thread.');
