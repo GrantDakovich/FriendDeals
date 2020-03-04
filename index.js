@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 var app = express();
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 const str = "EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN";
 
@@ -30,10 +31,32 @@ function handlePostback(sender_psid, postback_event){
   	var response = {};
 
 	if (payload == "Get friend code"){
-		response = {
+		/*response = {
 			"text": "FriendCode is: 23sjdw3"
 		}
-		callSendAPI(sender_psid, response);
+		callSendAPI(sender_psid, response);*/
+		var messageData = {
+		    recipient: {
+		      id: recipientId
+		    },
+		    message: {
+			    attachment: {
+			        type: "template",
+			        payload: {
+			            template_type: "button",
+			            text: "OK, let's set your room preferences so I won't need to ask for them in the future.",
+			            buttons: [{
+			                type: "web_url",
+			                url: "https://messenger-bot-hack.herokuapp.com/options",
+			                title: "Set preferences",
+			                webview_height_ratio: "compact",
+			                messenger_extensions: false
+			            }]
+			        }
+			    }
+			}
+		};
+
 	}
 	else if (payload == "Going back"){
 		sendGenericMessage(sender_psid, 1);
@@ -41,8 +64,12 @@ function handlePostback(sender_psid, postback_event){
 	else if (payload == "Access Friend Deals"){
 		sendGenericMessage(sender_psid, 2);
 	}
-
-
+	else if (payload == "Use friend code"){
+		response = {
+			"text": "Message us a code from your friend"
+		}
+		callSendAPI(sender_psid, response);
+	}
   
 }
 
@@ -61,6 +88,7 @@ function sendGenericMessage(recipientId, generic_num) {
       }
     }
   };
+
   callGenericSendAPI(messageData);
 }
 
@@ -77,7 +105,7 @@ function getGenericElements(pay_num){
             	title: "Buy now!"
           	}, {
             	type: "postback",
-            	title: "Use FriendDeals!",
+            	title: "FriendDeals!!",
             	payload: "Access Friend Deals"
           	}]
 	    }];
@@ -90,6 +118,10 @@ function getGenericElements(pay_num){
             	type: "postback",
             	title: "Get Friend Code",
             	payload: "Get friend code"
+          	}, {
+            	type: "postback",
+            	title: "Use a Friend Code",
+            	payload: "Use friend code"
           	}, {
             	type: "postback",
             	title: "Go Back",
