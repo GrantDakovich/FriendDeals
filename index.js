@@ -63,7 +63,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: false
+			                messenger_extensions: true
 			            }]
 			        }
 			    }
