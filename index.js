@@ -8,19 +8,30 @@ app.use(express.static('public'));
 const str = "EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN";
 
 function handleMessage(sender_psid, received_message) {
-  let response;
 
   // Check if the message contains text
   if (received_message.text) {    
-
-    // Create the payload for a basic text message
-    response = {
-      "text": `You sent the message: "${received_message.text}".`
-    }
+  	if (received_message.text == "Hey"){
+  		sendGenericMessage(sender_psid, 1);
+  	}else {
+	    // Create the payload for a basic text message
+	    let response = {
+	      "text": "Type 'Hey' to get started"
+	    }
+	    // Sends the response message
+	  	callSendAPI(sender_psid, response); 
+	}
   } 
+  else {
+		// Create the payload for a basic text message
+	    let response = {
+	      "text": "Type 'Hey' to get started"
+	    }
+	    // Sends the response message
+	  	callSendAPI(sender_psid, response); 
+  }
   
-  // Sends the response message
-  callSendAPI(sender_psid, response);  
+   
   
 }
 
