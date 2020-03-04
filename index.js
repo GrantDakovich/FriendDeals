@@ -44,11 +44,11 @@ function handlePostback(sender_psid, postback_event){
 			        type: "template",
 			        payload: {
 			            template_type: "button",
-			            text: "OK, let's set your room preferences so I won't need to ask for them in the future.",
+			            text: "Ready to pay?",
 			            buttons: [{
 			                type: "web_url",
-			                url: "https://messenger-bot-hack.herokuapp.com/options",
-			                title: "Set preferences",
+			                url: "https://messenger-bot-hack.herokuapp.com/pay",
+			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
 			                messenger_extensions: false
 			            }]
@@ -329,7 +329,7 @@ app.get("/", function (req, res){
 	res.send("hello world");
 });
 
-app.get('/options', (req, res) => {
+app.get('/pay', (req, res) => {
 	let referer = req.get('Referer');
 	if (referer) {
 	    if (referer.indexOf('www.messenger.com') >= 0) {
@@ -337,11 +337,11 @@ app.get('/options', (req, res) => {
 	    } else if (referer.indexOf('www.facebook.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
 	    }
-	    res.sendFile('public/options.html', {root: __dirname});
+	    res.sendFile('public/pay.html', {root: __dirname});
 	}
 });
 
-app.get('/optionspostback', (req, res) => {
+app.get('/paypostback', (req, res) => {
 	let body = req.query;
 	let response = {
 	    "text": `Great, I will book you a ${body.bed} bed, with ${body.pillows} pillows and a ${body.view} view.`
