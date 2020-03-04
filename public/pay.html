@@ -18,6 +18,7 @@ window.extAsyncInit = function () {
         MessengerExtensions.getContext('205924050770323',
           function success(thread_context) {
             // success
+            alert(thread_context);
             document.getElementById("psid").value = thread_context.psid;
             document.getElementById('submitButton').addEventListener('click', function () {
                     MessengerExtensions.requestCloseBrowser(function success() {
