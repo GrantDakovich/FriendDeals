@@ -37,7 +37,7 @@ function handlePostback(sender_psid, postback_event){
 		callSendAPI(sender_psid, response);*/
 		var messageData = {
 		    recipient: {
-		      id: recipientId
+		      id: sender_psid
 		    },
 		    message: {
 			    attachment: {
