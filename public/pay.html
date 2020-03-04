@@ -15,21 +15,14 @@ window.extAsyncInit = function () {
     MessengerExtensions.getSupportedFeatures(function success(result) {
         let features = result.supported_features;
         if (features.indexOf("context") != -1) {
-            MessengerExtensions.getContext('205924050770323',
-                function success(thread_context) {
-                    // success
-                    alert(thread_context);
-                    document.getElementById("psid").value = thread_context.psid;
-                    document.getElementById('submitButton').addEventListener('click', function () {
-                        MessengerExtensions.requestCloseBrowser(function success() {
-                            console.log("Webview closing");
-                        }, function error(err) {
-                            console.log(err);
-                        });
-                    });
-                },
-                function error(err) {
-                    console.log(err);
+            MessengerExtensions.getContext('<YOUR_APP_ID>',
+            function success(thread_context) {
+                // success
+                document.getElementById("psid").value = thread_context.psid;
+                // More code to follow
+            },
+            function error(err) {
+                console.log(err);
             });
         }
     }, function error(err) {
