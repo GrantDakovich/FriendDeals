@@ -56,6 +56,7 @@ function handlePostback(sender_psid, postback_event){
 			    }
 			}
 		};
+		callGenericSendAPI(messageData);
 
 	}
 	else if (payload == "Going back"){
