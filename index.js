@@ -372,9 +372,6 @@ app.get('/paypostback', (req, res) => {
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	var response2 = {
-	    "text": "ok"
-	};
 	//sendGenericMessage(body.psid, 1)
 	callSendAPI(body.psid, response);
 	callSendAPI(body.psid, response2);
