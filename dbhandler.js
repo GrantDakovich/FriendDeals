@@ -57,7 +57,7 @@ const deepCopyFunction = inObject => {
 
 const getNextDeal = (requesting_user, callback) => {
 	console.log("REQUESTING USER: " + requesting_user);
-	mongoose.connect(db_url + '/frienddeals',{
+	mongoose.connect(db_url,{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 		useCreateIndex: true
@@ -73,7 +73,7 @@ const getNextDeal = (requesting_user, callback) => {
 }
 
 const refreshDealCodes = (callback) => {
-	mongoose.connect(db_url + '/frienddeals',{
+	mongoose.connect(db_url,{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 		useCreateIndex: true
@@ -85,7 +85,7 @@ const refreshDealCodes = (callback) => {
 }
 
 const friendAddingCode = (friend_code, callback) => {
-	mongoose.connect(db_url + '/frienddeals',{
+	mongoose.connect(db_url,{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 		useCreateIndex: true
@@ -120,7 +120,7 @@ const friendAddingCode = (friend_code, callback) => {
 }
 
 const fillWithData = () => {
-	mongoose.connect(db_url + '/frienddeals',{
+	mongoose.connect(db_url,{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 		useCreateIndex: true
