@@ -1,6 +1,10 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+
+const dbhandler = require('./dbhandler.js');
+
+
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -288,6 +292,11 @@ bot.sendTextMessage(userId, "Echo Message: " + message);
   }
 }*/
 
+app.get('/fill', (req, res) => {
+  dbhandler.fillWithData();
+  res.send("sfioae");
+})
+
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
@@ -372,9 +381,8 @@ app.get('/paypostback', (req, res) => {
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	//sendGenericMessage(body.psid, 1)
+	sendGenericMessage(body.psid, 1)
 	callSendAPI(body.psid, response);
-	callSendAPI(body.psid, response2);
 	res.status(200).send('Please close this window to return to the conversation thread.');
 });
 
