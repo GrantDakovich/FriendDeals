@@ -56,14 +56,15 @@ const deepCopyFunction = inObject => {
 }
 
 const getNextDeal = (requesting_user, callback) => {
-	console.log("REQUESTING USER: " + requesting_user);
+	//console.log("REQUESTING USER: " + requesting_user);
+
 	mongoose.connect(db_url,{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 		useCreateIndex: true
 	});
 
-	deal_pool_model.findOne({time_allocated: 0}, (err, data) => {
+	deal_pool_model.findOne({users: 0}, (err, data) => {
 		//data.time_allocated = (new Date()).getTime();
 		deal_pool_model.updateOne(data, {$set: {username: requesting_user, time_allocated: (new Date()).getTime()}}, () => {
 			callback(data);

@@ -2,7 +2,7 @@ var express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const dbhandler = require('./dbhandler.js');
+//const dbhandler = require('./dbhandler.js');
 
 
 var app = express();
@@ -292,10 +292,12 @@ bot.sendTextMessage(userId, "Echo Message: " + message);
   }
 }*/
 
+/*
 app.get('/fill', (req, res) => {
   dbhandler.fillWithData();
   res.send("sfioae");
 })
+*/
 
 app.get('/webhook', (req, res) => {
 
@@ -372,6 +374,7 @@ app.get('/pay', (req, res) => {
 	    } else if (referer.indexOf('www.facebook.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
 	    }
+	    console.log("here");
 	    res.sendFile('public/pay.html', {root: __dirname});
 	}
 });
