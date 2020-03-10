@@ -367,6 +367,7 @@ app.get("/", function (req, res){
 });
 
 app.get('/pay', (req, res) => {
+	console.log("pay");
 	let referer = req.get('Referer');
 	if (referer) {
 	    if (referer.indexOf('www.messenger.com') >= 0) {
@@ -374,7 +375,6 @@ app.get('/pay', (req, res) => {
 	    } else if (referer.indexOf('www.facebook.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
 	    }
-	    console.log("here");
 	    res.sendFile('public/pay.html', {root: __dirname});
 	}
 });
