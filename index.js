@@ -369,6 +369,7 @@ app.get("/", function (req, res){
 app.get('/pay', (req, res) => {
 	console.log("pay");
 	let referer = req.get('Referer');
+	console.log(referer);
 	if (referer) {
 	    if (referer.indexOf('www.messenger.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
