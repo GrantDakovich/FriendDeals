@@ -67,7 +67,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -376,6 +376,7 @@ app.get('/pay', (req, res) => {
 	    } else if (referer.indexOf('www.facebook.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
 	    }
+
 	    res.sendFile('public/pay.html', {root: __dirname});
 	}
 });
