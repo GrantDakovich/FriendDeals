@@ -94,7 +94,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -102,15 +102,6 @@ function handlePostback(sender_psid, postback_event){
 		};
 		callGenericSendAPI(messageData);
 
-		var response = {
-			"text": "We will message you when your friend uses your code. If you have not yet sent it, send it now. If they do not use it in the next 30 mins, you will not be charged."
-		}
-		callSendAPI(sender_psid, response);
-
-		response = {
-			"text": "Your friend has used your friend code! You've saved $5."
-		}
-		setTimeout(callSendAPI(sender_psid, response), 10000)
 	}
 	else if (payload == "Going back"){
 		sendGenericMessage(sender_psid, 1);
@@ -140,13 +131,23 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
 			}
 		};
 		callGenericSendAPI(messageData);
+		var response = {
+			"text": "We will message you when your friend uses your code. If you have not yet sent it, send it now. If they do not use it in the next 30 mins, you will not be charged."
+		}
+		callSendAPI(sender_psid, response);
+
+		response = {
+			"text": "Your friend has used your friend code! You've saved $5."
+		}
+		setTimeout(callSendAPI(sender_psid, response), 10000)
+	
 	}
   
 }
@@ -459,7 +460,9 @@ app.get('/paypostback', (req, res) => {
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	sendGenericMessage(body.psid, 1);
+	console.log(req)
+	console.log(res)
+	//sendGenericMessage(body.psid, 1);
 	//callSendAPI(body.psid, response);
 	res.status(200).send('Please close this window to return to the conversation thread.');
 });
