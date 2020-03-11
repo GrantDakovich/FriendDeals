@@ -229,7 +229,15 @@ function sendCarouselMessage(recipientId, carousel_num) {
 			          		payload: "About FriendDeals"
 			          	}
 			        ]
-				},
+				}
+			]
+        }
+      }
+    }
+  };	
+}
+/*
+,
 	          	{
 		        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
 		          	image_url: "mount_tee.png",
@@ -250,12 +258,7 @@ function sendCarouselMessage(recipientId, carousel_num) {
 			          	}
 			        ]
 				}
-			]
-        }
-      }
-    }
-  };	
-}
+				*/
 
 
 function getGenericElements(pay_num){
