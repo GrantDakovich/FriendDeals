@@ -117,7 +117,7 @@ function getGenericElements(pay_num){
 	if (pay_num === 1){
 	    elements = [{
         	title: "This is a generic",
-          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	image_url: "https://image.shutterstock.com/image-vector/tshirt-logo-vector-illustration-260nw-395276338.jpg",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
             	type: "postback",
