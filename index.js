@@ -61,7 +61,7 @@ function handlePostback(sender_psid, postback_event){
 			            buttons: [{
 			                type: "postback",
 			                title: "Awesome, get my code!",
-			                payload: "Get Code"
+			                payload: "Get Friend Code"
 			            }]
 			        }
 			    }
@@ -111,7 +111,28 @@ function handlePostback(sender_psid, postback_event){
 		callSendAPI(sender_psid, response);
 	}
 	else if (payload == "Get Friend Code"){
-		sendGenericMessage(sender_psid, 3);
+		var messageData = {
+		    recipient: {
+		      id: sender_psid
+		    },
+		    message: {
+			    attachment: {
+			        type: "template",
+			        payload: {
+			            template_type: "button",
+			            text: "Here is your friend code: wj320ed\nTake a screenshot and send to a Friend and tell them to click use a friend's code when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
+			            buttons: [{
+			                type: "web_url",
+			                url: "https://messenger-bot-hack.herokuapp.com/pay",
+			                title: "Pay",
+			                webview_height_ratio: "compact",
+			                messenger_extensions: false
+			            }]
+			        }
+			    }
+			}
+		};
+		callGenericSendAPI(messageData);
 	}
   
 }
@@ -176,7 +197,7 @@ function getGenericElements(pay_num){
             	payload: "Going back"
           	}]
 	    }];
-	} else if (pay_num === 3){
+	} /*else if (pay_num === 3){
 		elements = [{
         	title: "This is a generic",
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
@@ -187,7 +208,7 @@ function getGenericElements(pay_num){
             	payload: "Pay"
           	}]
 	    }];
-	} /*else if (pay_num === 4){
+	}*/ /*else if (pay_num === 4){
 		elements = [{
         	title: "What's Friend Deals",
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
