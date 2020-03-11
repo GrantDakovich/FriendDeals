@@ -202,7 +202,7 @@ function getGenericElements(pay_num){
 	if (pay_num === 1){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "/tydy_tee.png",
+          	image_url: "tydy_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[{
             	type: "postback",
@@ -219,7 +219,7 @@ function getGenericElements(pay_num){
           	},
           	{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "/tydy_tee.png",
+          	image_url: "mount_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[{
             	type: "postback",
