@@ -47,6 +47,9 @@ function handlePostback(sender_psid, postback_event){
   	if (payload == "Getting Started"){
   		sendGenericMessage(sender_psid, 1);
   	}
+  	else if (payload == "About FriendDeals"){
+  		sendGenericMessage(sender_psid, 4);
+  	}
 	else if (payload == "Pay"){
 		/*response = {
 			"text": "FriendCode is: 23sjdw3"
@@ -110,13 +113,14 @@ function sendGenericMessage(recipientId, generic_num) {
   };
 
   callGenericSendAPI(messageData);
+  
 }
 
 function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
-        	title: "This is a generic",
+        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each with friend deals",
           	image_url: "https://image.shutterstock.com/image-vector/tshirt-logo-vector-illustration-260nw-395276338.jpg",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
@@ -127,6 +131,10 @@ function getGenericElements(pay_num){
             	type: "postback",
             	title: "FriendDeals!!",
             	payload: "Access Friend Deals"
+          	}, {
+          		type: "postback",
+          		title: "What's FriendDeals?",
+          		payload: "About FriendDeals"
           	}]
 	    }];
 	} else if (pay_num === 2){
@@ -159,7 +167,18 @@ function getGenericElements(pay_num){
             	payload: "Pay"
           	}]
 	    }];
-	}
+	} else if (pay_num === 4){
+		elements = [{
+        	title: "With FriendDeals, you can send a link to a friend and if you both use the code, you both save! If only one uses the code, neither is charged.",
+          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	subtitle: "Take a screen-shot and send friend code to a friend. \nYour friend code is xerwio3",
+          	buttons:[{
+            	type: "postback",
+            	title: "Awesome, get code!",
+            	payload: "Get Friend Code"
+          	}]
+	    }];
+	} 
 	
 	return elements;
 }
