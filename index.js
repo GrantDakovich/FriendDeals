@@ -94,7 +94,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -130,7 +130,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -449,7 +449,7 @@ app.get('/paypostback', (req, res) => {
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	//sendGenericMessage(body.psid, 1);
+	sendGenericMessage(body.psid, 1);
 	//callSendAPI(body.psid, response);
 	res.status(200).send('Please close this window to return to the conversation thread.');
 });
