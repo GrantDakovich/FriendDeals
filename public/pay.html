@@ -22,6 +22,7 @@ window.extAsyncInit = function () {
     /*MessengerExtensions.getSupportedFeatures(function success(result) {
         let features = result.supported_features;
         if (features.indexOf("context") != -1) {*/
+            console.log("window.name: " + window.name);
             MessengerExtensions.getContext('205924050770323',
             function success(thread_context) {
                 // success
