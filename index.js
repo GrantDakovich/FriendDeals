@@ -447,7 +447,8 @@ app.get('/pay', (req, res) => {
 
 app.get('/paypostback', (req, res) => {
 	let body = req.query;
-	console.log(body.psid)
+	console.log(body)
+	console.log("psid: " + body.psid)
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
