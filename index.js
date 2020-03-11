@@ -94,7 +94,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Go to Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -130,7 +130,7 @@ function handlePostback(sender_psid, postback_event){
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
 			                title: "Pay",
 			                webview_height_ratio: "compact",
-			                messenger_extensions: true
+			                messenger_extensions: false
 			            }]
 			        }
 			    }
@@ -431,24 +431,21 @@ app.get("/", function (req, res){
 });
 
 app.get('/pay', (req, res) => {
-	console.log("pay");
 	let referer = req.get('Referer');
-	console.log(referer);
 	if (referer) {
 	    if (referer.indexOf('www.messenger.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
 	    } else if (referer.indexOf('www.facebook.com') >= 0) {
 	        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
 	    }
-
 	    res.sendFile('public/pay.html', {root: __dirname});
 	}
 });
 
 app.get('/paypostback', (req, res) => {
 	let body = req.query;
-	console.log(body)
-	console.log("psid: " + body.psid)
+	console.log(body);
+	console.log("psid: " + body.psid);
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};

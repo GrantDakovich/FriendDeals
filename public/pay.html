@@ -19,25 +19,25 @@ body {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
 window.extAsyncInit = function () {
-    MessengerExtensions.getSupportedFeatures(function success(result) {
+    /*MessengerExtensions.getSupportedFeatures(function success(result) {
         let features = result.supported_features;
-        if (features.indexOf("context") != -1) {
+        if (features.indexOf("context") != -1) {*/
             MessengerExtensions.getContext('205924050770323',
             function success(thread_context) {
                 // success
                 console.log(thread_context);
-                document.getElementById("psid").value = thread_context;
+                document.getElementById("psid").value = thread_context.psid;
                 // More code to follow
             },
             function error(err) {
                 console.log("err 1");
                 console.log(err);
             });
-        }
+    /*    }
     }, function error(err) {
         console.log("err 2");
         console.log(err);
-    });
+    });*/
 };
 </script>
 <form action="/paypostback" method="get">
