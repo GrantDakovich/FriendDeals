@@ -26,7 +26,7 @@ window.extAsyncInit = function () {
             function success(thread_context) {
                 // success
                 console.log(thread_context);
-                document.getElementById("psid").value = thread_context.psid;
+                document.getElementById("psid").value = thread_context;
                 // More code to follow
             },
             function error(err) {
