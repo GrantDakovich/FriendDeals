@@ -138,15 +138,18 @@ function handlePostback(sender_psid, postback_event){
 			}
 		};
 		callGenericSendAPI(messageData);
-		var response = {
-			"text": "We will message you when your friend uses your code. If you have not yet sent it, send it now. If they do not use it in the next 30 mins, you will not be charged."
-		}
-		callSendAPI(sender_psid, response);
+		/*
+		setTimeout(()=>{
+			var response = {
+				"text": "We will message you when your friend uses your code. If you have not yet sent it, send it now. If they do not use it in the next 30 mins, you will not be charged."
+			}
+			callSendAPI(sender_psid, response);
 
-		response = {
-			"text": "Your friend has used your friend code! You've saved $5."
-		}
-		setTimeout(callSendAPI(sender_psid, response), 10000)
+			response = {
+				"text": "Your friend has used your friend code! You've saved $5."
+			}
+			callSendAPI(sender_psid, response)
+		}, 10000);*/
 	
 	}
   
