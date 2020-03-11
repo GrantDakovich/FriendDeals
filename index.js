@@ -56,7 +56,7 @@ function handlePostback(sender_psid, postback_event){
   	console.log(payload);
   	var response = {};
   	if (payload == "Getting Started"){
-  		
+
   		sendCarouselMessage(sender_psid, 1);
   	}
   	else if (payload == "About FriendDeals"){
@@ -206,7 +206,7 @@ function sendCarouselMessage(recipientId, carousel_num) {
     },
     message: {
       attachment: {
-        type: "carousel",
+        type: "template",
         payload: {
         	template_type: "generic",
         	elements: [
