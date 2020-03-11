@@ -48,7 +48,27 @@ function handlePostback(sender_psid, postback_event){
   		sendGenericMessage(sender_psid, 1);
   	}
   	else if (payload == "About FriendDeals"){
-  		sendGenericMessage(sender_psid, 4);
+  		var messageData = {
+		    recipient: {
+		      id: sender_psid
+		    },
+		    message: {
+			    attachment: {
+			        type: "template",
+			        payload: {
+			            template_type: "button",
+			            text: "With FriendDeals, you can send a link to a friend and if you both use the code, you both save! If only one uses the code, neither is charged.",
+			            buttons: [{
+			                type: "postback",
+			                title: "Awesome, get my code!",
+			                payload: "Get Code"
+			            }]
+			        }
+			    }
+			}
+		};
+
+		callGenericSendAPI(messageData);
   	}
 	else if (payload == "Pay"){
 		/*response = {
@@ -167,7 +187,7 @@ function getGenericElements(pay_num){
             	payload: "Pay"
           	}]
 	    }];
-	} else if (pay_num === 4){
+	} /*else if (pay_num === 4){
 		elements = [{
         	title: "What's Friend Deals",
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
@@ -178,7 +198,7 @@ function getGenericElements(pay_num){
             	payload: "Get Friend Code"
           	}]
 	    }];
-	} 
+	} */
 	
 	return elements;
 }
