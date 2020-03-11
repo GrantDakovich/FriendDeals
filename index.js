@@ -8,8 +8,8 @@ const request = require('request');
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
-
-const str = "EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN";
+//EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN
+const str = "EAAC7SW3lmZAMBAF8OHY7eDbErk5ZBpLo9Xwpxp3VjtCUmXWiyZBSkZCKeDCPJj6WW9EyhslUBkPjkq7UdQIa4YvCFWGHuL7JiBS7eA8c6D7xo4dwaJpkTL6c14Qf7cFzi0hW2hy2SV9DZC2KKKaP03uEGLuZBhtsBRXnnij0YYKAZDZD";
 
 
 function sleep(time, callback) {
@@ -146,7 +146,7 @@ function handlePostback(sender_psid, postback_event){
 		};
 		callGenericSendAPI(messageData);
 
-		sleep(10000, function(){
+		/*sleep(10000, function(){
 			var response = {
 			"text": "We will message you when your friend uses your code. If you have not yet sent it, send it now. If they do not use it in the next 30 mins, you will not be charged."
 			}
@@ -156,7 +156,7 @@ function handlePostback(sender_psid, postback_event){
 				"text": "Your friend has used your friend code! You've saved $5."
 			}
 			callSendAPI(sender_psid, response);
-		});
+		});*/
 		
 		
 		
