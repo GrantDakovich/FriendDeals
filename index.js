@@ -11,6 +11,10 @@ app.use(express.static('public'));
 
 const str = "EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN";
 
+
+
+
+
 function handleMessage(sender_psid, received_message) {
 
   // Check if the message contains text
@@ -120,7 +124,7 @@ function handlePostback(sender_psid, postback_event){
 			        type: "template",
 			        payload: {
 			            template_type: "button",
-			            text: "Here is your friend code: wj320ed\nTake a screenshot and send to a Friend and tell them to click use a friend's code when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
+			            text: "Here is your friend code: wj320ed\nTake a screenshot and send to a Friend and tell them to click \"use a friend's code\" when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
 			            buttons: [{
 			                type: "web_url",
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
@@ -170,7 +174,7 @@ function getGenericElements(pay_num){
             	payload: "Pay"
           	}, {
             	type: "postback",
-            	title: "FriendDeals!!",
+            	title: "Use FriendDeals!!",
             	payload: "Access Friend Deals"
           	}, {
           		type: "postback",
@@ -443,11 +447,12 @@ app.get('/pay', (req, res) => {
 
 app.get('/paypostback', (req, res) => {
 	let body = req.query;
+	console.log(body.psid)
 	var response = {
 	    "text": `Success ${body.card_number}`
 	};
-	sendGenericMessage(body.psid, 1)
-	callSendAPI(body.psid, response);
+	//sendGenericMessage(body.psid, 1);
+	//callSendAPI(body.psid, response);
 	res.status(200).send('Please close this window to return to the conversation thread.');
 });
 
