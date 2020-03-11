@@ -113,16 +113,16 @@ function sendGenericMessage(recipientId, generic_num) {
   };
 
   callGenericSendAPI(messageData);
-  
+
 }
 
 function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
-        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each with friend deals",
+        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
           	image_url: "https://image.shutterstock.com/image-vector/tshirt-logo-vector-illustration-260nw-395276338.jpg",
-          	subtitle: "Use FriendDeals and save you and a friend money!",
+          	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[{
             	type: "postback",
             	title: "Buy now!",
@@ -169,12 +169,12 @@ function getGenericElements(pay_num){
 	    }];
 	} else if (pay_num === 4){
 		elements = [{
-        	title: "With FriendDeals, you can send a link to a friend and if you both use the code, you both save! If only one uses the code, neither is charged.",
+        	title: "What's Friend Deals",
           	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
-          	subtitle: "Take a screen-shot and send friend code to a friend. \nYour friend code is xerwio3",
+          	subtitle: "With FriendDeals, you can send a link to a friend and if you both use the code, you both save! If only one uses the code, neither is charged.",
           	buttons:[{
             	type: "postback",
-            	title: "Awesome, get code!",
+            	title: "Awesome, get my code!",
             	payload: "Get Friend Code"
           	}]
 	    }];
