@@ -82,7 +82,7 @@ function handlePostback(sender_psid, postback_event){
 
 		callGenericSendAPI(messageData);
   	}
-	else if (payload == "Pay"){
+	else if (payload == "Pay" || payload == "Use friend code"){
 		/*response = {
 			"text": "FriendCode is: 23sjdw3"
 		}
@@ -117,12 +117,12 @@ function handlePostback(sender_psid, postback_event){
 	else if (payload == "Access Friend Deals"){
 		sendGenericMessage(sender_psid, 2);
 	}
-	else if (payload == "Use friend code"){
+	/*else if (payload == "Use friend code"){
 		response = {
 			"text": "Message us a code from your friend"
 		}
 		callSendAPI(sender_psid, response);
-	}
+	}*/
 	else if (payload == "Get Friend Code"){
 		var messageData = {
 		    recipient: {
@@ -270,8 +270,26 @@ function getGenericElements(pay_num){
 		}];
 	} else if (pay_num === 2){
 		elements = [{
-        	title: "This is a generic",
-          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+        	title: "Would you like to get a friend code or use a friend code?",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/mount_tee.png",
+          	subtitle: "Use FriendDeals and save you and a friend money!",
+          	buttons:[{
+            	type: "postback",
+            	title: "Get Friend Code",
+            	payload: "Get friend code"
+          	}, {
+            	type: "postback",
+            	title: "Use a Friend Code",
+            	payload: "Use friend code"
+          	}, {
+            	type: "postback",
+            	title: "Go Back",
+            	payload: "Going back"
+          	}]
+	    },
+	    {
+        	title: "Would you like to get a friend code or use a friend code?",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/tydy_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
             	type: "postback",
