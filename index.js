@@ -273,7 +273,7 @@ function getGenericElements(pay_num){
 	if (pay_num === 1){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: __dirname + "/mount_tee.png",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/mount_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[
           		{
