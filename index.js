@@ -272,7 +272,26 @@ function sendCarouselMessage(recipientId, carousel_num) {
 function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
-	    
+	    elements = [{
+        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
+          	image_url: "mount_tee.png",
+          	subtitle: "Use FriendDeals and save you and a friend $5!",
+          	buttons:[
+          		{
+	            	type: "postback",
+	            	title: "Buy now!",
+	            	payload: "Pay"
+	          	}, {
+	            	type: "postback",
+	            	title: "Use FriendDeals!!",
+	            	payload: "Access Friend Deals"
+	          	}, {
+	          		type: "postback",
+	          		title: "What's FriendDeals?",
+	          		payload: "About FriendDeals"
+	          	}
+	        ]
+		}];
 	} else if (pay_num === 2){
 		elements = [{
         	title: "This is a generic",
