@@ -56,7 +56,7 @@ function handlePostback(sender_psid, postback_event){
   	console.log(payload);
   	var response = {};
   	if (payload == "Getting Started"){
-
+  		console.log("entered getting started");
   		sendCarouselMessage(sender_psid, 1);
   	}
   	else if (payload == "About FriendDeals"){
@@ -200,6 +200,9 @@ function sendGenericMessage(recipientId, generic_num) {
 
 
 function sendCarouselMessage(recipientId, carousel_num) {
+
+	console.log("Sending carousel message");
+
 	var messageData = {
 	    recipient: {
 	      id: recipientId
