@@ -27,6 +27,7 @@ function handleMessage(sender_psid, received_message) {
   // Check if the message contains text
   if (received_message.text) {    
   	if (received_message.text == "Hey"){
+  		console.log("Here");
   		sendGenericMessage(sender_psid, 1);
   	}else {
 	    // Create the payload for a basic text message
