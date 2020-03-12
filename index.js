@@ -268,11 +268,12 @@ function sendCarouselMessage(recipientId, carousel_num) {
 
 
 function getGenericElements(pay_num){
+	console.log(__dirname);
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
+          	image_url: __dirname + "/mount_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[
           		{
