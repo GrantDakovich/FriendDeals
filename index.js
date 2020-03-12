@@ -57,7 +57,7 @@ function handlePostback(sender_psid, postback_event){
 
   	if (payload == "Getting Started"){
   		console.log("entered getting started");
-  		sendCarouselMessage(sender_psid, 1);
+  		sendGenericMessage(sender_psid, 1);
   	}
   	else if (payload == "About FriendDeals"){
   		var messageData = {
@@ -199,49 +199,6 @@ function sendGenericMessage(recipientId, generic_num) {
 }
 
 
-function sendCarouselMessage(recipientId, carousel_num) {
-
-	console.log("Sending carousel message");
-
-	var messageData = {
-	    recipient: {
-	      id: recipientId
-	    },
-	    message: {
-	      attachment: {
-	        type: "template",
-	        payload: {
-	        	template_type: "generic",
-	        	elements: [
-					{
-					    title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-			          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
-			          	subtitle: "Use FriendDeals and save you and a friend $5!",
-			          	buttons:[
-			          		{
-				            	type: "postback",
-				            	title: "Buy now!",
-				            	payload: "Pay"
-					        }, {
-				            	type: "postback",
-				            	title: "Use FriendDeals!!",
-				            	payload: "Access Friend Deals"
-				          	}, {
-				          		type: "postback",
-				          		title: "What's FriendDeals?",
-				          		payload: "About FriendDeals"
-				          	}
-				        ]
-					}
-				]
-	        }
-	      }
-	    }
-	};
-
-	callGenericSendAPI(messageData);
-
-}
 /*
 ,
 	          	{
@@ -274,6 +231,26 @@ function getGenericElements(pay_num){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
           	image_url: "https://messenger-bot-hack.herokuapp.com" + "/mount_tee.png",
+          	subtitle: "Use FriendDeals and save you and a friend $5!",
+          	buttons:[
+          		{
+	            	type: "postback",
+	            	title: "Buy now!",
+	            	payload: "Pay"
+	          	}, {
+	            	type: "postback",
+	            	title: "Use FriendDeals!!",
+	            	payload: "Access Friend Deals"
+	          	}, {
+	          		type: "postback",
+	          		title: "What's FriendDeals?",
+	          		payload: "About FriendDeals"
+	          	}
+	        ]
+		},
+		{
+        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/tydy_tee.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[
           		{
