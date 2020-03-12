@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
 //EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN
-const str = "EAAC7SW3lmZAMBAF8OHY7eDbErk5ZBpLo9Xwpxp3VjtCUmXWiyZBSkZCKeDCPJj6WW9EyhslUBkPjkq7UdQIa4YvCFWGHuL7JiBS7eA8c6D7xo4dwaJpkTL6c14Qf7cFzi0hW2hy2SV9DZC2KKKaP03uEGLuZBhtsBRXnnij0YYKAZDZD";
+const str = "EAAC7SW3lmZAMBAD8FjEIbzu9yDXyZCiAhYJZC1kqHGkWUY4kMNIvLZCRMZBZAORXKgQo8ZARZBgjXnBZAD8EiGNF5KmAFJhabmGXNazzswGHlkv6dh0a9AYd3HbsyX6YKJZB380Jh32zFThtnqgbfmCmSQ0CaM77UHuEUCBp7C8moQVAZDZD";
 
 
 function sleep(time, callback) {
@@ -230,27 +230,7 @@ function getGenericElements(pay_num){
 	if (pay_num === 1){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/mount_tee.png",
-          	subtitle: "Use FriendDeals and save you and a friend $5!",
-          	buttons:[
-          		{
-	            	type: "postback",
-	            	title: "Buy now!",
-	            	payload: "Pay"
-	          	}, {
-	            	type: "postback",
-	            	title: "Use FriendDeals!!",
-	            	payload: "Access Friend Deals"
-	          	}, {
-	          		type: "postback",
-	          		title: "What's FriendDeals?",
-	          		payload: "About FriendDeals"
-	          	}
-	        ]
-		},
-		{
-        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/tydy_tee.png",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/sandwich.png",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[
           		{
@@ -271,25 +251,7 @@ function getGenericElements(pay_num){
 	} else if (pay_num === 2){
 		elements = [{
         	title: "Would you like to get a friend code or use a friend code?",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/mount_tee.png",
-          	subtitle: "Use FriendDeals and save you and a friend money!",
-          	buttons:[{
-            	type: "postback",
-            	title: "Get Friend Code",
-            	payload: "Get friend code"
-          	}, {
-            	type: "postback",
-            	title: "Use a Friend Code",
-            	payload: "Use friend code"
-          	}, {
-            	type: "postback",
-            	title: "Go Back",
-            	payload: "Going back"
-          	}]
-	    },
-	    {
-        	title: "Would you like to get a friend code or use a friend code?",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/tydy_tee.png",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/sandwich.png",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
             	type: "postback",
