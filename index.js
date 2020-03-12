@@ -53,8 +53,9 @@ function handleMessage(sender_psid, received_message) {
 function handlePostback(sender_psid, postback_event){
 
   	var payload = postback_event.postback.payload;
-  	console.log(payload);
+  	console.log("payload: " + payload);
   	var response = {};
+
   	if (payload == "Getting Started"){
   		console.log("entered getting started");
   		sendCarouselMessage(sender_psid, 1);
