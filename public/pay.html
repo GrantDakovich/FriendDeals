@@ -3,7 +3,13 @@
 <style>
 body {
     font-size: 40px;
+    font-family: Arial;
+
 }
+input[type=submit] {
+    width: 20em;  height: 2em;
+}
+
 </style>
 </head>
 <body>
@@ -42,11 +48,11 @@ window.extAsyncInit = function () {
 };
 </script>
 <form action="/paypostback" method="get">
-    <input type="hidden" name="psid" id="psid">
+    <input type="hidden" name="psid" id="psid" size="50">
     Name on Card: <br>
-    <input type="text" name="card_name" id="card_name"><br>
+    <input type="text" name="card_name" id="card_name" size="50"><br>
     Card Number: <br>
-    <input type="text" name="card_number" id="card_number"><br>
+    <input type="text" name="card_number" id="card_number" size="50"><br>
     Exp: <br>
     <select name="month" id="month">
         <option value="1">1</option>
