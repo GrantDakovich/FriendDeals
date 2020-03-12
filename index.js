@@ -46,9 +46,7 @@ function handleMessage(sender_psid, received_message) {
 	    // Sends the response message
 	  	callSendAPI(sender_psid, response); 
   }
-  
-   
-  
+
 }
 
 function handlePostback(sender_psid, postback_event){
@@ -274,7 +272,7 @@ function getGenericElements(pay_num){
 	if (pay_num === 1){
 	    elements = [{
         	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
-          	image_url: "mount_tee.png",
+          	image_url: "https://i.picsum.photos/id/430/250/150.jpg",
           	subtitle: "Use FriendDeals and save you and a friend $5!",
           	buttons:[
           		{
