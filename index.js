@@ -8,8 +8,8 @@ const request = require('request');
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
-//EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN
-const str = "EAAC7SW3lmZAMBAHdIbebqm5ROsTGdINvPia14w4Vmh1zAHPjJ7Nog8hdjFwnfAVoSV57Nat7cQWHeOp602kZAT5TXFLTiLYQ9GEBdh0m8FCZASG9qabs6bdQ4B7e5gIc5EzEdtI0TneYbi66xOZAGuSsW8CuE3WYoxlLtz2sZCQZDZD";
+
+const str = "<YOUR PAGE CODE>";
 
 
 function sleep(time, callback) {
