@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
 //EAAC7SW3lmZAMBAIhRQ3RvcRy8DbT4KcZCvnpRBUjqU8c2sw388W3tD3z2Lb5Klt1PCwhKZA3NJP468HZAMMek0GWOCwHLKcXHFDMYm9mvAVT9ZALHnu2jITeu4ibSRLLls0wZBJBwkRTLTtIsXQwTzHhkSZBDEAIdXeoDlIuFDrG651h4r5GOPN
-const str = "EAAC7SW3lmZAMBAD8FjEIbzu9yDXyZCiAhYJZC1kqHGkWUY4kMNIvLZCRMZBZAORXKgQo8ZARZBgjXnBZAD8EiGNF5KmAFJhabmGXNazzswGHlkv6dh0a9AYd3HbsyX6YKJZB380Jh32zFThtnqgbfmCmSQ0CaM77UHuEUCBp7C8moQVAZDZD";
+const str = "EAAC7SW3lmZAMBAHdIbebqm5ROsTGdINvPia14w4Vmh1zAHPjJ7Nog8hdjFwnfAVoSV57Nat7cQWHeOp602kZAT5TXFLTiLYQ9GEBdh0m8FCZASG9qabs6bdQ4B7e5gIc5EzEdtI0TneYbi66xOZAGuSsW8CuE3WYoxlLtz2sZCQZDZD";
 
 
 function sleep(time, callback) {
@@ -133,7 +133,7 @@ function handlePostback(sender_psid, postback_event){
 			        type: "template",
 			        payload: {
 			            template_type: "button",
-			            text: "Here is your friend code: rt09o3q\nTake a screenshot and send to a Friend and tell them to click \"use a friend's code\" when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
+			            text: "Here is your friend code: x90abcd\nTake a screenshot and send to a Friend and tell them to click \"use a friend's code\" when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
 			            buttons: [{
 			                type: "web_url",
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
@@ -229,9 +229,9 @@ function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
-        	title: "Welcome to Joey's Sandwiches! Order delivery for $9. You and a friend could save $2 each",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/sandwich.png",
-          	subtitle: "Use FriendDeals and save you and a friend $2!",
+        	title: "Welcome to Discount Concert Tix! Order a ticket for $90. You and a friend could save $20 each",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/ticket.png",
+          	subtitle: "Use FriendDeals and save you and a friend $20!",
           	buttons:[
           		{
 	            	type: "postback",
@@ -251,7 +251,7 @@ function getGenericElements(pay_num){
 	} else if (pay_num === 2){
 		elements = [{
         	title: "Would you like to get a friend code or use a friend code?",
-          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/sandwich.png",
+          	image_url: "https://messenger-bot-hack.herokuapp.com" + "/ticket.png",
           	subtitle: "Use FriendDeals and save you and a friend money!",
           	buttons:[{
             	type: "postback",
