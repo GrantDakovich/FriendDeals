@@ -229,9 +229,9 @@ function getGenericElements(pay_num){
 	var elements = [];
 	if (pay_num === 1){
 	    elements = [{
-        	title: "Welcome to Chill Vibes Tees! Shirts for $20. You and a friend could save $5 each",
+        	title: "Welcome to Joey's Sandwiches! Order delivery for $9. You and a friend could save $2 each",
           	image_url: "https://messenger-bot-hack.herokuapp.com" + "/sandwich.png",
-          	subtitle: "Use FriendDeals and save you and a friend $5!",
+          	subtitle: "Use FriendDeals and save you and a friend $2!",
           	buttons:[
           		{
 	            	type: "postback",
