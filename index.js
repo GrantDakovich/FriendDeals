@@ -133,7 +133,7 @@ function handlePostback(sender_psid, postback_event){
 			        type: "template",
 			        payload: {
 			            template_type: "button",
-			            text: "Here is your friend code: wj320ed\nTake a screenshot and send to a Friend and tell them to click \"use a friend's code\" when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
+			            text: "Here is your friend code: rt09o3q\nTake a screenshot and send to a Friend and tell them to click \"use a friend's code\" when they purchase. Input your purchasing information and we won't charge you until your friend pays.",
 			            buttons: [{
 			                type: "web_url",
 			                url: "https://messenger-bot-hack.herokuapp.com/pay",
